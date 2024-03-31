@@ -1,0 +1,17 @@
+{
+  "testJwt": {
+    "admin": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiUm9sZSI6ImFkbWluIiwiaWQiOiIxIiwiaWF0IjoxNzExODY4NTExfQ.SD1V8YOGh1vRUieKq-yloDpOusYzujC-B5HD9VG6VRI",
+    "user": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiUm9sZSI6InVzZXIiLCJpZCI6IjIiLCJpYXQiOjE3MTE4Njg1MTF9.12Im8vhG8BLVWdWDA2MIxabaHx01nEf5DWNgDO7obko"
+  },
+  "port": 8080,
+  "db": {
+    "name": "test",
+    "user": "RAPSAPPUSER",
+    "host": "10.131.162.145",
+    "driver": "mysql",
+    "password": "R@P$appuser@123"
+  },
+  "jwt": {
+    "secertKey": "your_secret_key"
+  }
+}

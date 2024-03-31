@@ -1,0 +1,13 @@
+{
+  "port": 8080,
+  "db": {
+    "name": "test",
+    "user": "RAPSAPPUSER",
+    "host": "10.131.162.145",
+    "driver": "mysql",
+    "password": "R@P$appuser@123"
+  },
+  "jwt": {
+    "secertKey": "your_secret_key"
+  }
+}
