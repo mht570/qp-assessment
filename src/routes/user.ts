@@ -6,6 +6,6 @@ import { cartSchema } from "../middlwares/validateModels";
 const router = Router();
 
 router.get("/getAvailable", wrapErrHandler(groceryController.getAvailableGroceryList));
-router.get("/addToCart", wrapSchema(cartSchema), wrapErrHandler(groceryController.addGroceryItemToCart));
+router.post("/addToCart", wrapSchema(cartSchema), wrapErrHandler(groceryController.addGroceryItemToCart));
 
 export default router;

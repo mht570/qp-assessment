@@ -13,6 +13,5 @@ export enum UserRole {
 // Mock database of users
 export const users: User[] = [
   { id: "1", username: "admin", role: UserRole.ADMIN },
-  { id: "2", username: "user1", role: UserRole.USER },
-  { id: "3", username: "user2", role: UserRole.USER },
+  { id: "2", username: "user", role: UserRole.USER },
 ];

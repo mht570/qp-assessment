@@ -1,0 +1,234 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "description": "Grocery api's",
+    "version": "1.0.0",
+    "title": "Grocery api's"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/api/grocery",
+      "description": "Local server"
+    }
+  ],
+  "paths": {
+    "/token": {
+      "get": {
+        "summary": "delete the grocery item",
+        "tags": ["token Api"],
+        "description": "delete the grocery item",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "enter the username [admin, user] to generate token for authencation and authrization",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/admin/deleteGrocery": {
+      "delete": {
+        "summary": "delete the grocery item",
+        "tags": ["Admin Api"],
+        "description": "delete the grocery item",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "enter the header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/admin/getList": {
+      "get": {
+        "summary": "get all gorceryList",
+        "tags": ["Admin Api"],
+        "description": "get all gorceryList",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+
+        "responses": {}
+      }
+    },
+    "/admin/insertGrocery": {
+      "post": {
+        "summary": "add new grocery",
+        "tags": ["Admin Api"],
+        "description": "add new grocery",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "add new grocery",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/insertGrocery"
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/admin/updateGrocery": {
+      "patch": {
+        "summary": "updateGrocery grocery",
+        "tags": ["Admin Api"],
+        "description": "updateGrocery grocery",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "updateGrocery grocery",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateGrocery"
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/admin/mangeGrocery": {
+      "patch": {
+        "summary": "updateGrocery grocery",
+        "tags": ["Admin Api"],
+        "description": "updateGrocery grocery",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "updateGrocery grocery",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateGrocery"
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/user/getAvailable": {
+      "get": {
+        "summary": "get all Available gorceryList",
+        "tags": ["User Api"],
+        "description": "get all Available gorceryList",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+
+        "responses": {}
+      }
+    },
+    "/user/addToCart": {
+      "post": {
+        "summary": "add grocery to cart",
+        "tags": ["User Api"],
+        "description": "add grocery to cart",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "add grocery to cart",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addCart"
+              }
+            }
+          }
+        },
+        "responses": {}
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "schemas": {
+      "insertGrocery": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer"
+          },
+          "quantity": {
+            "type": "integer"
+          }
+        },
+        "required": ["name", "price", "quantity"]
+      },
+      "updateGrocery": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer"
+          },
+          "quantity": {
+            "type": "integer"
+          }
+        },
+        "required": ["name", "id", "price", "quantity"]
+      },
+      "addCart": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "quantity": {
+              "type": "integer"
+            }
+          },
+          "required": ["id", "quantity"]
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import Config from "config";
-import jwt, { Secret } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { UserRole, users } from "../models/user";
 
 // Middleware to authenticate users
@@ -20,9 +20,10 @@ export const authenticateUser = (req: any, res: Response, next: NextFunction) =>
   //Verify JWT token
 
   try {
-    const decodedToken = jwt.verify(token, Config.get("jwt.secretKey")) as { id: string; role: UserRole };
-
-    req.user = users.find((user) => user.id === decodedToken.id);
+    const decodedToken = jwt.verify(token, Config.get("jwt.secertKey")) as any;
+    //console.log(decodedToken);
+    req.user = users.find((user) => user.username === decodedToken.user.username);
+    //console.log(req.user);
 
     next();
   } catch (error) {

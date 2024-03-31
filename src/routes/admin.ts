@@ -7,6 +7,7 @@ const router = Router();
 router.post("/insertGrocery", wrapSchema(grocerySchema), wrapErrHandler(groceryController.insertGroceryList));
 router.get("/getList", wrapErrHandler(groceryController.getGroceryList));
 router.patch("/updateGrocery", wrapSchema(groceryUpdateSchema), wrapErrHandler(groceryController.updateGroceryItem));
+router.patch("/mangeGrocery", wrapSchema(groceryUpdateSchema), wrapErrHandler(groceryController.updateGroceryItem));
 router.delete("/deleteGrocery", wrapErrHandler(groceryController.deleteGroceryItem));
 
 export default router;
